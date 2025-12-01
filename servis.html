@@ -69,6 +69,7 @@
 </head>
 <body class="overflow-x-hidden flex flex-col min-h-screen">
 
+
     <!-- Header -->
     <header class="w-full bg-black/90 text-white sticky top-0 z-50 border-b border-gray-800 relative">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -83,10 +84,12 @@
                 <!-- Desktop Nav -->
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-8">
+                        <!-- Catalog Button (Toggles Dropdown) -->
                         <button id="catalog-btn" class="font-display text-xl tracking-wider text-white hover:text-gray-300 px-3 py-2 rounded-md transition-colors flex items-center gap-2">
                             Каталог
                         </button>
                         
+                        <!-- Solutions Button (Toggles Dropdown) -->
                         <button id="solutions-btn" class="font-display text-xl tracking-wider text-white hover:text-gray-300 px-3 py-2 rounded-md transition-colors flex items-center gap-2">
                             Решения
                         </button>
@@ -111,39 +114,115 @@
         <!-- Catalog Dropdown (Overlay) -->
         <div id="catalog-dropdown" class="hidden absolute top-full left-0 w-full bg-black border-b border-gray-700 shadow-2xl z-40">
             <div class="container mx-auto px-4 py-8">
+                <!-- Flex container for Menu Items (Left) and Content Panel (Right) -->
                 <div class="flex flex-col md:flex-row gap-8 lg:gap-16">
+                    
                     <!-- Left: Menu Items -->
                     <div class="flex flex-col items-start gap-4 shrink-0" id="catalog-menu-items">
-                        <a href="lab.html" class="catalog-menu-link group w-full md:w-[300px] h-[80px] bg-[#2a2e3a] border border-gray-700 hover:border-gray-500 flex items-center justify-between px-6 rounded hover:bg-[#3b4050] transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1">
+                         <!-- Item 1: Лабораторные печи -->
+                        <a href="lab.html" id="menu-item-lab" class="catalog-menu-link group w-full md:w-[300px] h-[80px] bg-[#2a2e3a] border border-gray-700 hover:border-gray-500 flex items-center justify-between px-6 rounded hover:bg-[#3b4050] transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1">
                             <span class="font-display text-2xl text-white tracking-wide">Лабораторные печи</span>
                             <div class="text-gray-400 group-hover:text-white transition-colors duration-300">
                                 <i data-lucide="chevron-right" class="w-6 h-6"></i>
                             </div>
                         </a>
-                        <a href="prom.html" class="catalog-menu-link group w-full md:w-[300px] h-[80px] bg-[#2a2e3a] border border-gray-700 hover:border-gray-500 flex items-center justify-between px-6 rounded hover:bg-[#3b4050] transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1">
+
+                        <!-- Item 2: Промышленные печи -->
+                        <a href="prom.html" id="menu-item-ind" class="catalog-menu-link group w-full md:w-[300px] h-[80px] bg-[#2a2e3a] border border-gray-700 hover:border-gray-500 flex items-center justify-between px-6 rounded hover:bg-[#3b4050] transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1">
                             <span class="font-display text-2xl text-white tracking-wide">Промышленные печи</span>
                             <div class="text-gray-400 group-hover:text-white transition-colors duration-300">
                                 <i data-lucide="chevron-right" class="w-6 h-6"></i>
                             </div>
                         </a>
-                        <a href="tunn.html" class="catalog-menu-link group w-full md:w-[300px] h-[80px] bg-[#2a2e3a] border border-gray-700 hover:border-gray-500 flex items-center justify-between px-6 rounded hover:bg-[#3b4050] transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1">
+
+                        <!-- Item 3: Туннельные печи -->
+                        <a href="tunn.html" id="menu-item-tun" class="catalog-menu-link group w-full md:w-[300px] h-[80px] bg-[#2a2e3a] border border-gray-700 hover:border-gray-500 flex items-center justify-between px-6 rounded hover:bg-[#3b4050] transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1">
                             <span class="font-display text-2xl text-white tracking-wide">Туннельные печи</span>
                             <div class="text-gray-400 group-hover:text-white transition-colors duration-300">
                                 <i data-lucide="chevron-right" class="w-6 h-6"></i>
                             </div>
                         </a>
-                        <a href="vtemp.html" class="catalog-menu-link group w-full md:w-[300px] h-[80px] bg-[#2a2e3a] border border-gray-700 hover:border-gray-500 flex items-center justify-between px-6 rounded hover:bg-[#3b4050] transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1">
+
+                        <!-- Item 4: Высокотемпературные печи -->
+                        <a href="vtemp.html" id="menu-item-high" class="catalog-menu-link group w-full md:w-[300px] h-[80px] bg-[#2a2e3a] border border-gray-700 hover:border-gray-500 flex items-center justify-between px-6 rounded hover:bg-[#3b4050] transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1">
                             <span class="font-display text-2xl text-white tracking-wide">Высокотемпературные печи</span>
                             <div class="text-gray-400 group-hover:text-white transition-colors duration-300">
                                 <i data-lucide="chevron-right" class="w-6 h-6"></i>
                             </div>
                         </a>
                     </div>
-                    <!-- Right: Content Details (Static Links for now in subpages) -->
+
+                    <!-- Right: Content Details (Initially hidden, shown on interaction) -->
                     <div id="catalog-details" class="flex-grow hidden md:block relative min-h-[350px]">
-                        <div class="absolute inset-0 flex items-center justify-center text-gray-500 font-display text-2xl uppercase tracking-widest">
-                            Выберите категорию
+                        
+                        <!-- Laboratory Ovens Details -->
+                        <div id="details-lab" class="details-content hidden absolute inset-0 w-full h-full flex flex-col lg:flex-row items-center gap-8 animate-fade-in">
+                            <!-- Image -->
+                            <div class="w-full lg:w-1/2 flex justify-center">
+                                <img src="Img/imglab.png" alt="Лабораторные печи" class="max-w-full h-auto max-h-[300px] object-contain">
+                            </div>
+                            <!-- Text Content -->
+                            <div class="w-full lg:w-1/2 flex flex-col gap-6 text-left">
+                                <p class="text-gray-300 text-lg leading-relaxed">
+                                    Линейка настольных печей с объемом рабочего пространства от 3 до 100 литров. Широкий набор опций позволяет использовать печь для процессов с удалением летучих веществ, купелирования, закалки, отжига и нормализации.
+                                </p>
+                                <a href="lab.html" class="inline-block text-center bg-[#6B809B] hover:bg-[#5a6e87] text-white font-display text-xl uppercase tracking-wider py-4 px-8 rounded transition-colors w-full lg:w-auto shadow-lg">
+                                    Перейти в раздел
+                                </a>
+                            </div>
                         </div>
+
+                        <!-- Industrial Ovens Details -->
+                        <div id="details-ind" class="details-content hidden absolute inset-0 w-full h-full flex flex-col lg:flex-row items-center gap-8 animate-fade-in">
+                            <!-- Image -->
+                            <div class="w-full lg:w-1/2 flex justify-center">
+                                <img src="Img/imgprom.png" alt="Промышленные печи" class="max-w-full h-auto max-h-[300px] object-contain">
+                            </div>
+                            <!-- Text Content -->
+                            <div class="w-full lg:w-1/2 flex flex-col gap-6 text-left">
+                                <p class="text-gray-300 text-lg leading-relaxed">
+                                    Предназначены для использования в различных отраслях промышленности, включая крупное серийное производство, лаборатории и гончарные мастерские.
+                                </p>
+                                <a href="prom.html" class="inline-block text-center bg-[#6B809B] hover:bg-[#5a6e87] text-white font-display text-xl uppercase tracking-wider py-4 px-8 rounded transition-colors w-full lg:w-auto shadow-lg">
+                                    Перейти в раздел
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Tunnel Ovens Details -->
+                        <div id="details-tun" class="details-content hidden absolute inset-0 w-full h-full flex flex-col lg:flex-row items-center gap-8 animate-fade-in">
+                            <!-- Image -->
+                            <div class="w-full lg:w-1/2 flex justify-center">
+                                <img src="Img/imgtunn.png" alt="Туннельные печи" class="max-w-full h-auto max-h-[300px] object-contain">
+                            </div>
+                            <!-- Text Content -->
+                            <div class="w-full lg:w-1/2 flex flex-col gap-6 text-left">
+                                <p class="text-gray-300 text-lg leading-relaxed">
+                                    Многозонные проходные печи с электрическим обогревом применяются в производственных линиях, где требуется непрерывность процесса обжига в течении длительного времени.
+                                </p>
+                                <a href="tunn.html" class="inline-block text-center bg-[#6B809B] hover:bg-[#5a6e87] text-white font-display text-xl uppercase tracking-wider py-4 px-8 rounded transition-colors w-full lg:w-auto shadow-lg">
+                                    Перейти в раздел
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- High Temp Ovens Details -->
+                        <div id="details-high" class="details-content hidden absolute inset-0 w-full h-full flex flex-col lg:flex-row items-center gap-8 animate-fade-in">
+                            <!-- Image -->
+                            <div class="w-full lg:w-1/2 flex justify-center">
+                                <img src="Img/imgvtemp.png" alt="Высокотемпературные печи" class="max-w-full h-auto max-h-[300px] object-contain">
+                            </div>
+                            <!-- Text Content -->
+                            <div class="w-full lg:w-1/2 flex flex-col gap-6 text-left">
+                                <p class="text-gray-300 text-lg leading-relaxed">
+                                    Серия напольных высокотемпературных печей с рабочим объемом камеры от 16 до 276 литров и температурами до 1800°C.
+                                </p>
+                                <a href="vtemp.html" class="inline-block text-center bg-[#6B809B] hover:bg-[#5a6e87] text-white font-display text-xl uppercase tracking-wider py-4 px-8 rounded transition-colors w-full lg:w-auto shadow-lg">
+                                    Перейти в раздел
+                                </a>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -156,13 +235,13 @@
                     
                     <!-- Left: Menu Items -->
                     <div class="flex flex-col items-start gap-4 shrink-0" id="solutions-menu-items">
-                        <a href="#" id="sol-item-combo" class="catalog-menu-link group w-full md:w-[400px] h-[80px] bg-[#2a2e3a] border border-gray-700 hover:border-gray-500 flex items-center justify-between px-6 rounded hover:bg-[#3b4050] transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1">
+                        <a href="komb.html" id="sol-item-combo" class="catalog-menu-link group w-full md:w-[400px] h-[80px] bg-[#2a2e3a] border border-gray-700 hover:border-gray-500 flex items-center justify-between px-6 rounded hover:bg-[#3b4050] transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1">
                             <span class="font-display text-lg md:text-xl text-white tracking-wide uppercase">Комбинированные камерные печи</span>
                             <div class="text-gray-400 group-hover:text-white transition-colors duration-300">
                                 <i data-lucide="chevron-right" class="w-6 h-6"></i>
                             </div>
                         </a>
-                        <a href="#" id="sol-item-bitumen" class="catalog-menu-link group w-full md:w-[400px] h-[80px] bg-[#2a2e3a] border border-gray-700 hover:border-gray-500 flex items-center justify-between px-6 rounded hover:bg-[#3b4050] transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1">
+                        <a href="bit.html" id="sol-item-bitumen" class="catalog-menu-link group w-full md:w-[400px] h-[80px] bg-[#2a2e3a] border border-gray-700 hover:border-gray-500 flex items-center justify-between px-6 rounded hover:bg-[#3b4050] transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1">
                             <span class="font-display text-lg md:text-xl text-white tracking-wide uppercase">Печи выжигания битума</span>
                             <div class="text-gray-400 group-hover:text-white transition-colors duration-300">
                                 <i data-lucide="chevron-right" class="w-6 h-6"></i>
@@ -176,7 +255,7 @@
                         <div id="details-sol-combo" class="details-sol-content hidden absolute inset-0 w-full h-full flex flex-col lg:flex-row items-center gap-8 animate-fade-in">
                             <!-- Image -->
                             <div class="w-full lg:w-1/2 flex justify-center">
-                                <img src="Img/imglab.png" alt="Комбинированные камерные печи" class="max-w-full h-auto max-h-[300px] object-contain">
+                                <img src="Img/imgkomb.png" alt="Комбинированные камерные печи" class="max-w-full h-auto max-h-[300px] object-contain">
                             </div>
                             <!-- Text Content -->
                             <div class="w-full lg:w-1/2 flex flex-col gap-6 text-left">
@@ -193,7 +272,7 @@
                         <div id="details-sol-bitumen" class="details-sol-content hidden absolute inset-0 w-full h-full flex flex-col lg:flex-row items-center gap-8 animate-fade-in">
                             <!-- Image -->
                             <div class="w-full lg:w-1/2 flex justify-center">
-                                <img src="Img/imglab.png" alt="Печи выжигания битума" class="max-w-full h-auto max-h-[300px] object-contain">
+                                <img src="Img/imgbit.png" alt="Печи выжигания битума" class="max-w-full h-auto max-h-[300px] object-contain">
                             </div>
                             <!-- Text Content -->
                             <div class="w-full lg:w-1/2 flex flex-col gap-6 text-left">
@@ -226,7 +305,17 @@
                      <a href="vtemp.html" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-lg font-display">Высокотемпературные печи</a>
                 </div>
 
-                <a href="index.html" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-xl font-display tracking-wider">Решения</a>
+                <!-- Mobile Solutions (Now a Dropdown) -->
+                <button id="mobile-solutions-btn" class="w-full text-left text-white bg-gray-900 block px-3 py-2 rounded-md text-xl font-display tracking-wider flex justify-between items-center">
+                    Решения
+                    <i data-lucide="chevron-down" class="w-5 h-5"></i>
+                </button>
+                <!-- Mobile Solutions Submenu -->
+                <div id="mobile-solutions-submenu" class="hidden pl-4 space-y-2 py-2 bg-gray-900/50 rounded-md mt-1">
+                     <a href="komb.html" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-lg font-display">Комбинированные камерные печи</a>
+                     <a href="bit.html" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-lg font-display">Печи выжигания битума</a>
+                </div>
+
                 <a href="servis.html" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-xl font-display tracking-wider">Сервис</a>
                 <a href="about.html" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-xl font-display tracking-wider">О нас</a>
                 <a href="contacts.html" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-xl font-display tracking-wider">Контакты</a>
