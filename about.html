@@ -70,6 +70,7 @@
 <body class="overflow-x-hidden flex flex-col min-h-screen">
 
 
+
     <!-- Header -->
     <header class="w-full bg-black/90 text-white sticky top-0 z-50 border-b border-gray-800 relative">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -255,7 +256,7 @@
                         <div id="details-sol-combo" class="details-sol-content hidden absolute inset-0 w-full h-full flex flex-col lg:flex-row items-center gap-8 animate-fade-in">
                             <!-- Image -->
                             <div class="w-full lg:w-1/2 flex justify-center">
-                                <img src="Img/imglab.png" alt="Комбинированные камерные печи" class="max-w-full h-auto max-h-[300px] object-contain">
+                                <img src="Img/imgkomb.png" alt="Комбинированные камерные печи" class="max-w-full h-auto max-h-[300px] object-contain">
                             </div>
                             <!-- Text Content -->
                             <div class="w-full lg:w-1/2 flex flex-col gap-6 text-left">
@@ -272,7 +273,7 @@
                         <div id="details-sol-bitumen" class="details-sol-content hidden absolute inset-0 w-full h-full flex flex-col lg:flex-row items-center gap-8 animate-fade-in">
                             <!-- Image -->
                             <div class="w-full lg:w-1/2 flex justify-center">
-                                <img src="Img/imglab.png" alt="Печи выжигания битума" class="max-w-full h-auto max-h-[300px] object-contain">
+                                <img src="Img/imgbit.png" alt="Печи выжигания битума" class="max-w-full h-auto max-h-[300px] object-contain">
                             </div>
                             <!-- Text Content -->
                             <div class="w-full lg:w-1/2 flex flex-col gap-6 text-left">
@@ -305,14 +306,24 @@
                      <a href="vtemp.html" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-lg font-display">Высокотемпературные печи</a>
                 </div>
 
-                <a href="index.html" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-xl font-display tracking-wider">Решения</a>
+                <!-- Mobile Solutions (Now a Dropdown) -->
+                <button id="mobile-solutions-btn" class="w-full text-left text-white bg-gray-900 block px-3 py-2 rounded-md text-xl font-display tracking-wider flex justify-between items-center">
+                    Решения
+                    <i data-lucide="chevron-down" class="w-5 h-5"></i>
+                </button>
+                <!-- Mobile Solutions Submenu -->
+                <div id="mobile-solutions-submenu" class="hidden pl-4 space-y-2 py-2 bg-gray-900/50 rounded-md mt-1">
+                     <a href="komb.html" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-lg font-display">Комбинированные камерные печи</a>
+                     <a href="bit.html" class="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-lg font-display">Печи выжигания битума</a>
+                </div>
+
                 <a href="servis.html" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-xl font-display tracking-wider">Сервис</a>
                 <a href="about.html" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-xl font-display tracking-wider">О нас</a>
                 <a href="contacts.html" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-xl font-display tracking-wider">Контакты</a>
             </div>
         </div>
     </header>
-
+    
     <!-- Main Content -->
     <main class="flex-grow bg-[#2a2e3a]">
         <div class="container mx-auto px-4 py-12 md:py-20">
