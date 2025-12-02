@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AVT - Каталог продукции</title>
+    <title>ЛВТ | Каталог продукции</title>
     <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- Скрипт иконок Lucide -->
@@ -11,23 +11,37 @@
 
     <style>
         /* Шрифты (дублирование из index.html для автономности страницы) */
+
+        /* 1. Шрифт для заголовков: Bebas Neue Cyrillic */
         @font-face {
             font-family: 'Bebas Neue Cyrillic';
-            src: url('fonts/BebasNeueCyrillic.woff2') format('woff2'),
-                 url('fonts/BebasNeueCyrillic.woff') format('woff'),
-                 url('fonts/BebasNeueCyrillic.ttf') format('truetype');
+            src: url('fonts/BebasNeueCyrillic.ttf') format('truetype'),
+                url('fonts/BebasNeueCyrillic.woff2') format('woff2'),
+                 url('fonts/BebasNeueCyrillic.woff') format('woff');
             font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* 2. Основной текст: Inter */
+        @font-face {
+            font-family: 'Inter';
+            src: url('fonts/Inter.ttf') format('truetype'),
+                url('fonts/Inter.woff2') format('woff2'),
+                 url('fonts/Inter.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
             font-display: swap;
         }
         @font-face {
             font-family: 'Inter';
-            src: url('fonts/Inter.woff2') format('woff2'),
-                 url('fonts/Inter.woff') format('woff'),
-                 url('fonts/Inter.ttf') format('truetype');
-            font-weight: 400;
+            src: url('fonts/Inter.ttf') format('truetype'),
+                url('fonts/Inter.woff2') format('woff2'),
+                 url('fonts/Inter.woff') format('woff');
+            font-weight: 500;
+            font-style: normal;
             font-display: swap;
         }
-
         body { 
             font-family: 'Inter', sans-serif; 
             background-color: #2a2e3a; 
